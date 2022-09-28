@@ -1,29 +1,23 @@
-Detalii semnificative de implementare:
-
-Am retinut intr-o structura tipul de date(timestamp, real), cu tot cu o variabila char out, in care retin daca
-un numar trebuie sau nu sa fie scos dupa prima parcurgere(e1). Astfel, pentru e1 parcurg de 2 ori lista si a
-doua oara sterg nodurile ce au .out = 1.
-
-Pentru task-urile in care trebuie sa refac lista, creez o noua lista in care se afla nodurile conform cerintei.
-Pentru lista veche fac o copie a pointerului la lista(apoi o eliberez cu clean), si *l = newlist transfera l in
-noua lista, pentru ca la final afisez standard lista l initiala.
-
-In general, inserarea s-a facut la sfarsitul listei, insa pentru task-ul c am folosit si inserare dupa un nod.
-De asemenea, "coada"(nu este o pqueue propriu-zis, am folosit notatia doar pentru a marca rolul ei in program) are
-functii de inserare atat la final, cat si dupa un nod, si la inceput. 
-
-Pentru task-ul c am folosit formulele date si am inserat mereu dupa primul nod din gap(1000 ms).
-
-Pentru task-ul st am retinut in "coada" un tip de date ce retine diviziunea lui R pentru numere, cat si numarul de
-numere din diviziune. De exemplu, [0, 10] este divizunea 0 atunci cand delta = 10, iar daca am x numere in [0, 10]
-voi avea in coada (0, x). In lista de tip coada s-au retinut detele crescator dupa diviziune. Cand merg pe un nod,
-verific de la inceputul cozii daca se afla deja intr-o divizune din coada; daca se afla deja intr-o divizune, maresc
-nr cu 1; altfel, gasesc diviziunile intre care se afla si adaug o noua diviziune, initializata cu nr = 1; (prin nr
-si divizune ma refer la campurile din structura "inter").
-
-Tot la st am retinut intr-un string de maxim 10 caractere numarul si am folosit functia atoi pentru a vedea delta
-din argumentul in linia de comanda.
-
-Programul afiseaza l doar daca nu a fost apelata functia st(din enunt se intelege ca la subpunctul st nu se afiseaza lista).
-
-Ca ultim update am renuntat la functia de round pentru ca nu dadea pe un test. Am inteles enuntul gresit.
+How to use:
+  - build with make
+  - the input has the following format:
+  
+  --------------------
+  number_of_pairs
+  timestamp realValue
+  timestamp realValue
+  timestamp realValue
+  timestamp realValue
+  ...
+  --------------------
+  
+  - use the following command:
+    ./tema1 −−command1 −−command2 −−command3
+  
+  - a command is one of the following keywords:
+    1. "e1" eliminates exceptions
+    2. "e2" eliminates noise with median filtering
+    3. "e3" eliminates noise with arithmetical filtering
+    4. "u" is used to damp frequency
+    5. "c" is used for data completion
+    6. "st<delta>" creates statistics based on the input; "delta" is a positive integer
