@@ -1,5 +1,6 @@
 How to use:
   - build with make
+  - the program reads from stdin!
   - the input has the following format:
   
   --------------------
